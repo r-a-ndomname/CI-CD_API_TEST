@@ -50,7 +50,7 @@ jobs:
           GOREST_TOKEN: ${{ secrets.GOREST_TOKEN }}
           REQRES_API_KEY: ${{ secrets.REQRES_API_KEY }}
         run: |
-          pytest --ignore=Day5 -k "not test_open_app and not test_calculation" -v -s
+          pytest --ignore=Day5 -k "not test_open_app and not test_calculation" 
 
       - name: Stop json-server
         if: always()
