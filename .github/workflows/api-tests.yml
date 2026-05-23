@@ -45,12 +45,10 @@ jobs:
 
       - name: Run pytest
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN_AUTH }}
+          FOR_MY_AAPI_REPO: ${{ secrets.FOR_MY_AAPI_REPO }}
+          SIMPLEBOOKS_TOKEN: ${{ secrets.SIMPLEBOOKS_TOKEN }}
         run: |
-          pytest \
-            --ignore=Day5 \
-            -k "not test_open_app and not test_calculation" \
-            -v
+          pytest --ignore=Day5 -k "not test_open_app and not test_calculation" -v
 
       - name: Stop json-server
         if: always()
