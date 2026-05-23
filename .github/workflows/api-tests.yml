@@ -47,6 +47,8 @@ jobs:
         env:
           FOR_MY_AAPI_REPO: ${{ secrets.FOR_MY_AAPI_REPO }}
           SIMPLEBOOKS_TOKEN: ${{ secrets.SIMPLEBOOKS_TOKEN }}
+          GOREST_TOKEN: ${{ secrets.GOREST_TOKEN }}
+          REQRES_API_KEY: ${{ secrets.REQRES_API_KEY }}
         run: |
           pytest --ignore=Day5 -k "not test_open_app and not test_calculation" -v
 

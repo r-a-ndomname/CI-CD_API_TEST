@@ -1,14 +1,17 @@
 import pytest
 import json
-import requests 
-from faker import Faker 
+import requests
+import os
+from faker import Faker
+
 BASE_URL = "https://gorest.co.in/public/v2/users"
-TOKEN = "a40248c5a47cd551cec588731f22a874c42083d1b8a94d6b400c44dfb96a0eca"
+TOKEN = os.environ.get("GOREST_TOKEN")
 HEADERS = {
     "Authorization": f"Bearer {TOKEN}",
     "Content-Type": "application/json"
 }
-@pytest.fixture(scope="session",autouse=True)
+
+@pytest.fixture(scope="session", autouse=True)
 def create_user():
     faker = Faker()
     data = {
