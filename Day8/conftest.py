@@ -4,7 +4,7 @@ import requests
 import os
 from faker import Faker
 
-BASE_URL = "https://gorest.co.in/public/v2/users"
+BASE_URL = "http://gorest.co.in/public/v2/users"
 TOKEN = os.environ.get("GOREST_TOKEN")
 HEADERS = {
     "Authorization": f"Bearer {TOKEN}",
