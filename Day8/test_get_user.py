@@ -5,7 +5,6 @@ TOKEN = os.environ.get("GOREST_TOKEN")
 HEADERS = {
     "Authorization": f"Bearer {TOKEN}",
     "Content-Type": "application/json",
-    "Authorization": f"Bearer {TOKEN}"
 }
 
 class TestGetUser:

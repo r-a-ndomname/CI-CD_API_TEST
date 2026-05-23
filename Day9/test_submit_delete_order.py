@@ -13,7 +13,7 @@ class TestOrderAPI:
         }
 
         headers = {
-            "Authorization": self.AUTH_TOKEN,
+            "Authorization": f'Bearer {self.AUTH_TOKEN}',
             "Content-Type": "application/json"
         }
         res = requests.post(self.BASE_URL, headers=headers, data=json.dumps(payload))

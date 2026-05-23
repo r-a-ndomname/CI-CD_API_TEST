@@ -12,7 +12,7 @@ def submit_delete_order(book_id,customer_name):
         "customerName": customer_name
     }
     headers = {
-        "Authorization": AUTH_TOKEN,
+        "Authorization": f"Bearer {AUTH_TOKEN}",
         "Content-Type": "application/json"
     }
     res = requests.post(BASE_URL, headers=headers, data=json.dumps(payload))
