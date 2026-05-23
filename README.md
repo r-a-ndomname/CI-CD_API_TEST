@@ -1,90 +1,92 @@
-# CI/CD API Testing Project
+# CI/CD Тестирование API
 
-A hands-on API test automation project built with **Python + pytest + requests**, covering REST API testing from basics to advanced patterns, with automated CI via GitHub Actions.
+Учебный проект по автоматизации тестирования REST API на **Python + pytest + requests** с автоматическим запуском через GitHub Actions.
 
-## What's Inside
+## Что внутри
 
-| Day | Topic |
-|-----|-------|
-| Day 1 | HTTP methods: GET, POST, PUT, DELETE |
-| Day 2 | Request body, fixtures, json-server mock API |
-| Day 3 | Path params & query params |
-| Day 4 | Authentication: Bearer token, Basic Auth, Digest Auth, API Key |
-| Day 6 | Parsing & validating complex JSON responses |
-| Day 7 | XML parsing, JSON schema validation, XML schema validation |
-| Day 8 | Chaining API calls, fake data generation |
-| Day 9 | Data-driven testing with JSON, CSV, and Excel |
+| День | Тема |
+|------|------|
+| Day 1 | HTTP методы: GET, POST, PUT, DELETE |
+| Day 2 | Тело запроса, фикстуры, mock API на json-server |
+| Day 3 | Path-параметры и query-параметры |
+| Day 4 | Аутентификация: Bearer токен, Basic Auth, Digest Auth, API Key |
+| Day 6 | Парсинг и валидация сложных JSON-ответов |
+| Day 7 | Парсинг XML, валидация JSON и XML схем |
+| Day 8 | Цепочки API-запросов, генерация фейковых данных |
+| Day 9 | Data-driven тесты: JSON, CSV, Excel |
 
-## Tech Stack
+## Стек технологий
 
 - **Python 3.12**
-- **pytest** — test runner
-- **requests** — HTTP client
-- **json-server** — local mock REST API (Node.js)
-- **xmltodict** — XML to dict conversion
-- **Faker** — fake data generation
-- **GitHub Actions** — CI pipeline
+- **pytest** — запуск тестов
+- **requests** — HTTP клиент
+- **json-server** — локальный mock REST API (Node.js)
+- **xmltodict** — конвертация XML в dict
+- **Faker** — генерация фейковых данных
+- **GitHub Actions** — CI пайплайн
 
-## Getting Started
+## Запуск локально
 
-### Prerequisites
+### Требования
 
 - Python 3.12+
 - Node.js 20+
 
-### Install dependencies
+### Установка зависимостей
 
 ```bash
 pip install -r requirements.txt
 npm install -g json-server@1.0.0-beta.3
 ```
 
-### Start the mock API server
+### Запуск mock API сервера
 
 ```bash
 cd Day2
 json-server --watch students.json --port 3000
 ```
 
-### Run tests (in a separate terminal)
+### Запуск тестов (в отдельном терминале)
 
 ```bash
 pytest --ignore=Day5 -k "not test_open_app and not test_calculation" -v
 ```
 
-## Required GitHub Secrets
+## Необходимые секреты GitHub
 
-To run in GitHub Actions, add the following secret in your repository:
+Для запуска в GitHub Actions добавь секреты в репозиторий:
 
 **Settings → Secrets and variables → Actions → New repository secret**
 
-| Secret name | Description | Where to get it |
-|-------------|-------------|-----------------|
-| `GITHUB_TOKEN_AUTH` | Personal GitHub access token | GitHub → Settings → Developer settings → Personal access tokens |
+| Название секрета | Описание | Где получить |
+|------------------|----------|--------------|
+| `FOR_MY_AAPI_REPO` | Personal Access Token GitHub | GitHub → Settings → Developer settings → Personal access tokens |
+| `SIMPLEBOOKS_TOKEN` | Токен для Simple Books API | Регистрация на [simple-books-api.click](http://simple-books-api.click) |
+| `GOREST_TOKEN` | Токен для GoRest API | Вход через GitHub на [gorest.co.in](https://gorest.co.in) |
 
-> **Note:** Never paste tokens directly into code. Always use GitHub Secrets.
+> **Важно:** никогда не вставляй токены прямо в код. Используй только GitHub Secrets.
 
-## CI Pipeline
+## CI пайплайн
 
-The GitHub Actions workflow (`.github/workflows/api-tests.yml`) runs automatically on every `push` and `pull_request`. It:
+Workflow (`.github/workflows/api-tests.yml`) запускается автоматически при каждом `push` и `pull_request`:
 
-1. Spins up a `json-server` mock API on port 3000
-2. Installs Python dependencies
-3. Runs all tests (excluding UI and Day5 tests)
-4. Reports results in the Actions tab
+1. Поднимает mock API (json-server) на порту 3000
+2. Устанавливает Python-зависимости
+3. Запускает все тесты (кроме UI и Day5)
+4. Показывает результаты во вкладке Actions
 
-## Project Structure
+## Структура проекта
 
 ```
 .
-├── Day1/       # HTTP method basics
-├── Day2/       # Fixtures, request body, mock API data
-├── Day3/       # URL parameters
-├── Day4/       # Authentication methods
-├── Day6/       # Complex JSON validation
-├── Day7/       # XML & schema validation
-├── Day8/       # API chaining & fake data
-├── Day9/       # Data-driven tests
+├── Day1/       # HTTP методы
+├── Day2/       # Фикстуры, тело запроса, mock API данные
+├── Day3/       # URL параметры
+├── Day4/       # Методы аутентификации
+├── Day6/       # Валидация сложного JSON
+├── Day7/       # XML и валидация схем
+├── Day8/       # Цепочки запросов и фейковые данные
+├── Day9/       # Data-driven тесты
 ├── requirements.txt
 └── .github/
     └── workflows/
