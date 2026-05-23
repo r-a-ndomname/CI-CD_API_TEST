@@ -6,6 +6,11 @@ from faker import Faker
 
 BASE_URL = "http://gorest.co.in/public/v2/users"
 TOKEN = os.environ.get("GOREST_TOKEN")
+# СТРОКИ ДЛЯ ДЕБАГА:
+print("\n========== DEBUG START ==========")
+print(f"TOKEN VALUE IS: {TOKEN}")
+print(f"TOKEN TYPE IS: {type(TOKEN)}")
+print("========== DEBUG END ==========\n")
 HEADERS = {
     "Authorization": f"Bearer {TOKEN}",
     "Content-Type": "application/json"
