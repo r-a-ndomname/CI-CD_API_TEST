@@ -45,7 +45,7 @@ jobs:
 
       - name: Run pytest
         env:
-          FOR_MY_AAPI_REPO: ${{ secrets.FOR_MY_AAPI_REPO }}
+          API_RESUME_TOKEN: ${{ secrets.API_RESUME_TOKEN }}
           SIMPLEBOOKS_TOKEN: ${{ secrets.SIMPLEBOOKS_TOKEN }}
           GOREST_TOKEN: ${{ secrets.GOREST_TOKEN }}
           REQRES_API_KEY: ${{ secrets.REQRES_API_KEY }}

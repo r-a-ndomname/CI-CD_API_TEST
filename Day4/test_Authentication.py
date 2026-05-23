@@ -5,7 +5,7 @@ from requests.auth import HTTPDigestAuth
 class TestAuthentication:
 
     def test_Bearer_token_auth(self):
-        bearer_token = os.environ.get("FOR_MY_AAPI_REPO")
+        bearer_token = os.environ.get("API_RESUME_TOKEN")
         request_headers = {"Authorization": f"Bearer {bearer_token}"}
         res = requests.get("https://api.github.com/user/repos", headers=request_headers)
         assert res.status_code == 200, "Wrong Status Code"
