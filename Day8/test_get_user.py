@@ -14,4 +14,4 @@ class TestGetUser:
         response = requests.get(url=f"{BASE_URL}/{user_id}", headers=HEADERS)
         assert response.status_code == 200, "User fetch failed"
         print("\nGET Response:\n", json.dumps(response.json(), indent=4))
-        assert response.json()["id"] == user_id
+        assert response.json()["id"] == user_id   
