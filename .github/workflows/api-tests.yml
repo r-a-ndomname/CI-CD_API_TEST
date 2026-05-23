@@ -1,0 +1,55 @@
+name: API tests
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install json-server
+        run: npm install -g json-server@1.0.0-beta.3
+
+      - name: Start json-server
+        working-directory: Day2
+        run: |
+          json-server --watch students.json --port 3000 --host 0.0.0.0 &
+          echo $! > ../json-server.pid
+
+      - name: Wait until API is ready
+        run: |
+          for i in $(seq 1 30); do
+            if curl -sf http://localhost:3000/students > /dev/null; then
+              echo "json-server is up"
+              exit 0
+            fi
+            sleep 1
+          done
+          echo "json-server did not start"
+          exit 1
+
+      - name: Install Python dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run pytest
+        run: |
+          pytest \
+            --ignore=Day5 \
+            -k "not test_open_app and not test_calculation" \
+            -v
+
+      - name: Stop json-server
+        if: always()
+        run: kill "$(cat json-server.pid)" 2>/dev/null || true
