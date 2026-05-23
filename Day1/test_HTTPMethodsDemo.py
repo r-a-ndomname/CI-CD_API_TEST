@@ -7,7 +7,6 @@ HEADERS = {
     "Content-Type": "application/json",
     "x-api-key": os.environ.get("REQRES_API_KEY")
 }
-free_user_3DIYfULKSoLFlUIoSsOH0xsAisH
 @pytest.mark.order(1)
 def test_get_users():
     res = requests.get(f"https://reqres.in/api/users?page=2", headers=HEADERS)
