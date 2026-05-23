@@ -4,7 +4,8 @@ BASE_URL = "http://gorest.co.in/public/v2/users"
 TOKEN = os.environ.get("GOREST_TOKEN")
 HEADERS = {
     "Authorization": f"Bearer {TOKEN}",
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
+    "Authorization": f"Bearer {TOKEN}"
 }
 
 class TestGetUser:
