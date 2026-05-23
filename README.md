@@ -63,7 +63,7 @@ pytest --ignore=Day5 -k "not test_open_app and not test_calculation" -v
 | `API_RESUME_TOKEN` | Personal Access Token GitHub | GitHub → Settings → Developer settings → Personal access tokens |
 | `SIMPLEBOOKS_TOKEN` | Токен для Simple Books API | Регистрация на [simple-books-api.click](http://simple-books-api.click) |
 | `GOREST_TOKEN` | Токен для GoRest API | Вход через GitHub на [gorest.co.in](https://gorest.co.in) |
-|`REQRES_API_KEY`| Токен для ReqRes API | Регистрация на [https://reqres.in/] |
+|`REQRES_API_KEY`| Токен для ReqRes API | Регистрация на https://reqres.in/ |
 
 
 
